@@ -41,9 +41,14 @@ for (i in 1..4) {
               }
             }
         }
-        scm {
-        git(GIT_URL, "\$BRANCH_NAME")
-      }
+        scm{
+            git {
+                remote
+                        {
+                            github("MNT-Lab/mntlab-dsl", "https")
+                        }
+                branch("\$BRANCH_NAME") }
+        }
       
         steps {
             shell("""bash ./script.sh > output.txt 
@@ -89,9 +94,14 @@ job("MNTLAB-${STUDENT}-main-build-job") {
         }
     }
   }
-      scm {
-    git(GIT_URL, "\$BRANCH")
-  }
+      scm{
+            git {
+                remote
+                        {
+                            github("MNT-Lab/mntlab-dsl", "https")
+                        }
+                branch("\$BRANCH") }
+        }
       steps {
           downstreamParameterized {
               trigger("\$BUILD_JOBS") {
