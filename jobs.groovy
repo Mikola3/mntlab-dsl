@@ -3,7 +3,7 @@ label = 'EPBYMINW2468'
 
 job("MNTLAB-ifilimonau-main-build-job") {
 
-    label(${label})
+    label("${label}")
         description()
         keepDependencies(false)
 
@@ -57,7 +57,7 @@ matchedJobs.name"""
 while(COUNTER < 4){
     COUNTER += 1
 
-    label(${label})
+    label("${label}")
         description()
         keepDependencies(false)
 
