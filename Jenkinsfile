@@ -1,6 +1,6 @@
 node("${SLAVE}") {
    
-    jobDsl targets: ['jobs.groovy'].join('\n'),
+   jobDsl targets: ["${WORKSPACE}/jobs.groovy"].join('\n'),
            removedJobAction: 'DELETE',
            removedViewAction: 'DELETE',
            lookupStrategy: 'SEED_JOB'
