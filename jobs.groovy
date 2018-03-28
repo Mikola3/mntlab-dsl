@@ -65,7 +65,7 @@ job(mainJob) {
     }
   }
   scm {
-    git(GITHUB_REPOSITORY, "\$BRANCH_NAME")
+    git(GITHUB_REPOSITORY, "\$BRANCH")
   }
   steps {
     downstreamParameterized {
@@ -76,7 +76,7 @@ job(mainJob) {
                       unstable('UNSTABLE')
                   }
                   parameters {
-                      predefinedProp('BRANCH_NAME', '\$BRANCH')
+                      predefinedProp('BRANCH_NAME', '\$BRANCH_NAME')
                   }
               }
     }
