@@ -39,5 +39,5 @@ job("$it") {
         steps {shell("""chmod +x script.sh
 bash -ex script.sh > output.txt
 tar czvf \$BUILD_TAG.tar.gz output.txt jobs.groovy
-mv \$BUILD_TAG.tar.gz /var/lib/jenkins/workspace/MAIN/""")}}
+mv \$BUILD_TAG.tar.gz ../MAIN""")}}
 wrappers {preBuildCleanup()}}}
