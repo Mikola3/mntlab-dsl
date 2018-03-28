@@ -12,24 +12,25 @@ job("MNTLAB-hkavaliova-main-build-job") {
             branch("\$BRANCH_NAME") }
     }
 
-    configure {
-        project->
-            project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
-                parameterDefinitions {
-                    'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
-                        name 'SelectChilds'
-                        quoteValue 'false'
-                        saveJSONParameterToFile 'false'
-                        visibleItemCount '15'
-                        type 'PT_CHECKBOX'
-                        value "MNTLAB-hkavaliova-child1-build-job, MNTLAB-hkavaliova-child2-build-job, MNTLAB-hkavaliova-child3-build-job, MNTLAB-hkavaliova-child4-build-job"
-                        multiSelectDelimiter ','
-                    }
-                }
-            }
-    }
+
     parameters {
         choiceParam('BRANCH_NAME', ['hkavaliova', 'master'], '')
+        configure {
+            project->
+                project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
+                    parameterDefinitions {
+                        'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
+                            name 'SelectChilds'
+                            quoteValue 'false'
+                            saveJSONParameterToFile 'false'
+                            visibleItemCount '15'
+                            type 'PT_CHECKBOX'
+                            value "MNTLAB-hkavaliova-child1-build-job, MNTLAB-hkavaliova-child2-build-job, MNTLAB-hkavaliova-child3-build-job, MNTLAB-hkavaliova-child4-build-job"
+                            multiSelectDelimiter ','
+                        }
+                    }
+                }
+        }
     }
     steps {
         downstreamParameterized {
@@ -65,33 +66,35 @@ while(COUNTER < 4) {
                 branch("\$selbran")
             }
         }
-        configure {
-            project ->
-                project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
-                    parameterDefinitions {
-                        'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
-                            name 'selbran'
-                            quoteValue 'false'
-                            saveJSONParameterToFile 'false'
-                            visibleItemCount '15'
-                            type 'PT_SINGLE_SELECT'
-                            groovyScript """
-    import jenkins.model.*
-    def gitURL = "https://github.com/MNT-Lab/mntlab-dsl"
-    def command = "git ls-remote -h \$gitURL"
-    
-    def proc = command.execute()
-     
-    def selbran = proc.in.text.readLines().collect { 
-        it.split('/')[2]
-    }
-    
-    return selbran"""
-                            multiSelectDelimiter ','
-                            defaultValue 'hkavaliova'
+        parameters {
+            configure {
+                project ->
+                    project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
+                        parameterDefinitions {
+                            'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
+                                name 'selbran'
+                                quoteValue 'false'
+                                saveJSONParameterToFile 'false'
+                                visibleItemCount '15'
+                                type 'PT_SINGLE_SELECT'
+                                groovyScript """
+        import jenkins.model.*
+        def gitURL = "https://github.com/MNT-Lab/mntlab-dsl"
+        def command = "git ls-remote -h \$gitURL"
+        
+        def proc = command.execute()
+         
+        def selbran = proc.in.text.readLines().collect { 
+            it.split('/')[2]
+        }
+        
+        return selbran"""
+                                multiSelectDelimiter ','
+                                defaultValue 'hkavaliova'
+                            }
                         }
                     }
-                }
+            }
         }
         steps {
             shell("""./script.sh > output.txt
