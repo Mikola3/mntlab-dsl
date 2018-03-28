@@ -1,2 +1,2 @@
 #!usr/bin/bash
-echo Hello MAN!!!
+echo Hello MAN!
