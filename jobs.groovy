@@ -15,9 +15,6 @@ job("${StartName}main${EndName}") {
             branch("*/\$branches")
         }
     }
-    triggers {
-            scm('H/2 * * * *')
-    }
     configure {project ->
         project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
             parameterDefinitions {
@@ -44,7 +41,6 @@ def matchedJobs = Jenkins.instance.getAllItems(jenkins.model.ParameterizedJobMix
   job -> job =~ job_pattern
 }
 return matchedJobs.name"""
-                    defaultValue "${StartName}${Type}1${EndName}"
                     multiSelectDelimiter ','
                 }
             }
