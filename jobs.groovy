@@ -31,7 +31,7 @@ for (int i = 1; i <5; i++) {
                   visibleItemCount '15'
                   type 'PT_SINGLE_SELECT'
                   groovyScript script
-                  defaultValue "BRANCH_NAME"
+                  defaultValue "kklimov"
                   multiSelectDelimiter ','
                   projectName "dwer"
               }
