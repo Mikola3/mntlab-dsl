@@ -20,6 +20,7 @@ return branches
 for (i in 1..4) {
     JOB_LIST << "MNTLAB-${STUDENT}-child${i}-build-job"
     job("${JOB_LIST.last()}"){
+       label("EPBYMINW2629")
         wrappers {
             preBuildCleanup()
         }
@@ -62,6 +63,7 @@ for (i in 1..4) {
 //MAIN JOB
 
 job("MNTLAB-${STUDENT}-main-build-job") {
+    label("EPBYMINW2629")
     wrappers {
         preBuildCleanup()
     }
