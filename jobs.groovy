@@ -20,6 +20,24 @@ for (int i = 1; i <5; i++) {
       wrappers {
         preBuildCleanup()
       }
+      configure {
+        project->
+            project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
+            parameterDefinitions {
+              'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
+                  name 'BRANCH_NAME'
+                  quoteValue 'false'
+                  saveJSONParameterToFile 'false'
+                  visibleItemCount '15'
+                  type 'PT_SINGLE_SELECT'
+                  groovyScript script
+                  defaultValue "pkislouski"
+                  multiSelectDelimiter ','
+                  projectName "example"
+              }
+          }
+        }
+      }
       scm {
         git(GITHUB_REPOSITORY, "\$BRANCH_NAME")
       }
