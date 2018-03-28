@@ -53,12 +53,7 @@ freeStyleJob('MNTLAB-ykhodzin-main-build-job') {
           saveJSONParameterToFile 'false'
           visibleItemCount '4'
           type 'PT_CHECKBOX'
-          groovyScript 'import jenkins.model.*\
-          \ndef matchedJobs = Jenkins.instance.items.findAll\
-          \n{ job -> job.name =~ /MNTLAB-ykhodzin-child/}\
-          \ndef list = [];matchedJobs.each\
-          \n{list << it.name.split("\\\\.")[0]}\
-          \nlist'
+          groovyScript '['MNTLAB-ykhodzin-child1-build-job', 'MNTLAB-ykhodzin-child2-build-job', 'MNTLAB-ykhodzin-child3-build-job', 'MNTLAB-ykhodzin-child4-build-job']'
           multiSelectDelimiter ','    
         }
       }
