@@ -1,4 +1,4 @@
-for (i in 2..4) {
+for (i in 1..4) {
   freeStyleJob("MNTLAB-ykhodzin-child${i}-build-job") {
     label('EPBYMINW1766')
     configure {
