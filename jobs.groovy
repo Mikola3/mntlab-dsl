@@ -16,7 +16,7 @@ def branches = proc.in.text.readLines().collect {
     it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '')
 }
 
-job("EPBYMINW2467/MNTLAB-alahutsin-main-build-job") {
+job("MNTLAB-alahutsin-main-build-job") {
     parameters {
 	choiceParam('BRANCH_NAME', ['alahutsin', 'master'], '')
         activeChoiceParam('BUILDS_TRIGGER') {
@@ -54,7 +54,7 @@ job("EPBYMINW2467/MNTLAB-alahutsin-main-build-job") {
 }
 
 1.upto(4) {
-job("EPBYMINW2467/MNTLAB-alahutsin-child${it}-build-job") {
+job("MNTLAB-alahutsin-child${it}-build-job") {
     parameters {
 	choiceParam('BRANCH_NAME', branches, '')
     }
