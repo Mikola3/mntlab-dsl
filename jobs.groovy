@@ -65,7 +65,7 @@ job(mainJob) {
     }
   }
   scm {
-    git(GITHUB_REPOSITORY, "\$BRANCH")
+    git(GITHUB_REPOSITORY, "\$BRANCH_NAME")
   }
   steps {
     downstreamParameterized {
