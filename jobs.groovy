@@ -67,7 +67,6 @@ freeStyleJob('MNTLAB-ykhodzin-main-build-job') {
   parameters {
     choiceParam('BRANCH_NAME', [ 'ykhodzin', 'master'],'')
   }
-  jdk('8u162')
   scm {
     github('MNT-Lab/build-principals', 'ykhodzin')
   }
