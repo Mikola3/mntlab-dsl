@@ -34,7 +34,7 @@ for (i in 1..4) {
                   saveJSONParameterToFile 'false'
                   visibleItemCount '15'
                   type 'PT_SINGLE_SELECT'
-                  groovyScript script
+                  groovyScript GROOVYSCRIPT
                   defaultValue "nbuzin"
                   multiSelectDelimiter ','
                   }
