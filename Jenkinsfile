@@ -1,4 +1,4 @@
-node(${SLAVE}) {
+node("${SLAVE}") {
 /*    
     jobDsl targets: ['jobs.groovy'].join('\n'),
            removedJobAction: 'DELETE',
