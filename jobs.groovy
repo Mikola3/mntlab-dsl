@@ -56,7 +56,7 @@ for (i in 1..4) {
                      cp \${BRANCH_NAME}_dsl_script_${i}-\${BUILD_NUMBER}.tar.gz ../MNTLAB-${STUDENT}-main-build-job""")
         }
         publishers {
-            archiveArtifacts("\${BRANCH_NAME}_dsl_script_${i}-\${BUILD_NUMBER}.tar.gz")
+            archiveArtifacts("*.tar.gz")
         }
     }
 }
