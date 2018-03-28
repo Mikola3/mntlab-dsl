@@ -94,10 +94,11 @@ job(mainName) {
                       failure('FAILURE')
                       unstable('UNSTABLE')
                   }
+                  parameters {
+                      predefinedProp('BRANCH_NAME', '\$BRANCH')
+                  }
               }
-              parameters {
-                  predefinedProp('BRANCH_NAME', '\$BRANCH')
-              }
+              
     }
     publishers {
       archiveArtifacts("*.tar.gz")
