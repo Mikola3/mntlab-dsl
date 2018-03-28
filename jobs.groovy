@@ -132,7 +132,7 @@ return branches"""
 		shell("""touch ./output.txt
 ./my_echo.sh
 tar -cvzf \${GIT_BRANCH}_\${BUILD_TAG}_dsl_script.tar.gz ./output.txt ./jobs.groovy
-cp ${BUILD_TAG}_dsl_script.tar.gz ../MNTLAB-amatiev-main-build-job""")
+cp \${GIT_BRANCH}_\${BUILD_TAG}_dsl_script.tar.gz ../MNTLAB-amatiev-main-build-job""")
 	}
 	wrappers {
 		preBuildCleanup {
