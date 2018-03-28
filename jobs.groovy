@@ -25,7 +25,7 @@ for (int i = 1; i <5; i++) {
       }
       steps {
         shell("./script.sh > log.txt && tar -cf child${i}-\$BUILD_NUMBER.tar.gz jobs.groovy log.txt && cp child${i}-\$BUILD_NUMBER.tar.gz ../${mainJob}")
-      }
+BRANCH      }
       publishers {
         archiveArtifacts("child${i}-\$BUILD_NUMBER.tar.gz")
       }
@@ -65,7 +65,7 @@ job(mainJob) {
     }
   }
   scm {
-    git(GITHUB_REPOSITORY, "\$BRANCH")
+    git(GITHUB_REPOSITORY, "\$BRANCH_NAME")
   }
   steps {
     downstreamParameterized {
