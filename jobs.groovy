@@ -81,8 +81,10 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-		shell("""chmod +x do.sh && ./do.sh > output.log &&
-tar -czf child2_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh && pwd && ls -la &&
+		shell("""chmod +x do.sh && ./do.sh > output.log 
+tar -czf child2_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh  
+pwd  
+ls -la 
 cp child2_${BUILD_NUMBER}_dsl_do.tar.gz ../MNTLAB-alahutsin-main-build-job/child2_${BUILD_NUMBER}_dsl_do.tar.gz""")
     }
     publishers { 
@@ -101,8 +103,10 @@ cp child2_${BUILD_NUMBER}_dsl_do.tar.gz ../MNTLAB-alahutsin-main-build-job/child
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell("""chmod +x do.sh && ./do.sh > output.log &&
-tar -czf child3_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh && pwd && ls -la &&
+	    shell("""chmod +x do.sh && ./do.sh > output.log 
+tar -czf child3_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh  
+pwd 
+ls -la 
 cp child3_${BUILD_NUMBER}_dsl_do.tar.gz ../MNTLAB-alahutsin-main-build-job/child3_${BUILD_NUMBER}_dsl_do.tar.gz""")
     }
     publishers { 
@@ -121,8 +125,10 @@ cp child3_${BUILD_NUMBER}_dsl_do.tar.gz ../MNTLAB-alahutsin-main-build-job/child
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell("""chmod +x do.sh && ./do.sh > output.log &&
-tar -czf child4_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh && pwd && ls -la &&
+	    shell("""chmod +x do.sh && ./do.sh > output.log 
+tar -czf child4_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh  
+pwd 
+ls -la 
 cp child4_${BUILD_NUMBER}_dsl_do.tar.gz ../MNTLAB-alahutsin-main-build-job/child4_${BUILD_NUMBER}_dsl_do.tar.gz""")
     }
     publishers { 
