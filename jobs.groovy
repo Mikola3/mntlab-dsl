@@ -33,11 +33,11 @@ job("${StartName}main${EndName}") {
                     visibleItemCount '5'
                     type 'PT_CHECKBOX'
                     groovyScript """import jenkins.model.*
-def job_pattern = /EPBYMINW2473\/MNTLAB/ 
+def job_pattern = /MNTLAB/ 
 def matchedJobs = Jenkins.instance.items.findAll { 
   job -> job =~ job_pattern 
   }
-  return matchedJobs.name """
+  return matchedJobs """
                     multiSelectDelimiter ','
                 }
             }
