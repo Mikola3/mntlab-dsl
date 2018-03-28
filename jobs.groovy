@@ -121,7 +121,7 @@ return branches"""
 	scm {
 		git {
 			remote {
-				github("MNT-Lab/build-principals", "https")
+				github("https://github.com/MNT-Lab/mntlab-dsl.git", "https")
 			}
 			branch("\$GIT_BRANCH")
 		}
