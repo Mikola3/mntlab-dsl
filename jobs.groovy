@@ -65,9 +65,7 @@ for (i in 1..4) {
 
 job("MNTLAB-${STUDENT}-main-build-job") {
     label("EPBYMINW2629")
-    wrappers {
-        preBuildCleanup()
-    }
+    
     configure {
     project->
         project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
@@ -118,5 +116,8 @@ job("MNTLAB-${STUDENT}-main-build-job") {
       publishers {
           archiveArtifacts("*.tar.gz")
         }
+    }
+      wrappers {
+        preBuildCleanup()
     }
 }
