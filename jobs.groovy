@@ -1,5 +1,5 @@
-String parent_name = "MNTLAB-Valery_Peshchanka-main-build-job"
-String super_massive = "MNTLAB-Valery_Peshchanka-child1-build-job, MNTLAB-Valery_Peshchanka-child2-build-job, MNTLAB-Valery_Peshchanka-child3-build-job, MNTLAB-Valery_Peshchanka-child4-build-job"
+String parent_name = "MNTLAB-vpeshchanka-main-build-job"
+String super_massive = "MNTLAB-vpeshchanka-child1-build-job, MNTLAB-vpeshchanka-child2-build-job, MNTLAB-vpeshchanka-child3-build-job, MNTLAB-vpeshchanka-child4-build-job"
 String args_main_job = "master, vpeshchanka"
 //creating five jobs
 for(int i=0; i<5; i++)
@@ -7,7 +7,6 @@ for(int i=0; i<5; i++)
   if(i == 0)
   {
     job("$parent_name") {
-      label("EPBYMINW6593")
       description ('Building necessary jobs')
             wrappers {
         preBuildCleanup()
@@ -62,9 +61,8 @@ for(int i=0; i<5; i++)
   }
   else
   {
-    String child_name = "MNTLAB-Valery_Peshchanka-child"  + Integer.toString(i) + "-build-job"
+    String child_name = "MNTLAB-vpeshchanka-child"  + Integer.toString(i) + "-build-job"
     job("$child_name") {
-     label("EPBYMINW6593")
       description ('Building necessary jobs')
     configure {
     project->
@@ -108,7 +106,7 @@ return branches
                 }
   	  }
       steps {
-        shell("./script.sh > log.txt && tar -cf \${BRANCHES}_dsl_script.tar.gz log.txt && cp \${BRANCHES}_dsl_script.tar.gz ../MNTLAB-Valery_Peshchanka-main-build-job/ && echo \"Hello\"")
+        shell("./script.sh > log.txt && tar -cf \${BRANCHES}_dsl_script.tar.gz log.txt && cp \${BRANCHES}_dsl_script.tar.gz ../MNTLAB-vpeshchanka-main-build-job/ && echo \"Hello\"")
     publishers {
       archiveArtifacts("*.tar.gz")
       }
