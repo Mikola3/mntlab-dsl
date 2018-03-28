@@ -57,12 +57,12 @@ matchedJobs.name"""
 while(COUNTER < 4){
     COUNTER += 1
 
-    label("${label}")
-        description()
-        keepDependencies(false)
-
     job("MNTLAB-ifilimonau-child$COUNTER-build-job") {
 
+        label("${label}")
+            description()
+            keepDependencies(false)
+        
         scm{
             git {
                 remote
