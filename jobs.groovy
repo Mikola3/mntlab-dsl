@@ -42,9 +42,8 @@ branches"""
   steps {
     shell("""chmod +x ./script.sh
 ./script.sh > out.txt
-echo $BUILD_NUMBER-$JOB_NAME
-tar czvf \$BUILD_NUMBER-\$JOB_NAME.tar.gz out.txt
-mv \$BUILD_NUMBER-\$JOB_NAME.tar.gz ../MNTLAB-uvalchkou-main-build-job/""")
+tar czvf \$BUILD_TAG.tar.gz out.txt
+mv \$BUILD_TAG.tar.gz ../MNTLAB-uvalchkou-main-build-job/""")
   }
   }
 
