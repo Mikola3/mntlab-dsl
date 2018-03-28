@@ -34,9 +34,9 @@ job("${StartName}main${EndName}") {
                     type 'PT_CHECKBOX'
                     groovyScript """import jenkins.model.*
 import hudson.model.*
-def job_pattern = /MNTLAB/ 
-def matchedJobs = Jenkins.instance.getAllItems(AbstractProject.class).each {
-job -> job =~ job_pattern  
+def job_pattern = /EPBYMINW2473/ 
+def matchedJobs = Jenkins.instance.getAllItems(jenkins.model.ParameterizedJobMixIn.ParameterizedJob.class).findAll{
+  job -> job =~ job_pattern
 }
 return matchedJobs.name"""
                     multiSelectDelimiter ','
