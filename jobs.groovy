@@ -70,7 +70,7 @@ job("MNTLAB-${StName}-child${i}-build-job") {
     }
     publishers { 
         archiveArtifacts {
-            pattern('output.log')
+            pattern('*.tar.gz')
             pattern('child${i}-\${ChooseBranch}-\${BUILD_NUMBER}_dsl_script.tar.gz')
             onlyIfSuccessful()
    }
