@@ -41,13 +41,13 @@ job(mainJob) {
         project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
         parameterDefinitions {
             'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
-                name 'BRANCH'
+                name 'BRANCH_NAME'
                 quoteValue 'false'
                 saveJSONParameterToFile 'false'
                 visibleItemCount '15'
                 type 'PT_SINGLE_SELECT'
                 groovyScript script
-                defaultValue "'master'"
+                defaultValue "'pkislouski'"
                 multiSelectDelimiter ','
                 projectName "dwer"
             }
