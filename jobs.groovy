@@ -16,7 +16,7 @@ return branches
 for (int i = 1; i <5; i++) {
     Jobs << "MNTLAB-${STUDENT_NAME}-child${i}-build-job"
     job("${Jobs.last()}"){
-      
+      label("EPBYMINW7296")
       wrappers {
         preBuildCleanup()
       }
@@ -32,7 +32,7 @@ for (int i = 1; i <5; i++) {
    }
 }
 job(mainJob) {
-    
+    label("EPBYMINW7296")
     wrappers {
         preBuildCleanup()
     }
@@ -49,7 +49,7 @@ job(mainJob) {
                 groovyScript script
                 defaultValue "'pkislouski'"
                 multiSelectDelimiter ','
-                projectName "dwer"
+                projectName "example"
             }
             'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
                 name 'BUILD_JOBS'
@@ -59,7 +59,7 @@ job(mainJob) {
                 type 'PT_CHECKBOX'
                 groovyScript "${Jobs.collect{"'$it'"}}"
                 multiSelectDelimiter ','
-                projectName "dwer"
+                projectName "example"
             }
         }
     }
