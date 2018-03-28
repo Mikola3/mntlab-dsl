@@ -20,8 +20,24 @@ for (int i = 1; i <5; i++) {
       wrappers {
         preBuildCleanup()
       }
+      configure {
+        project->
+            project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
+            parameterDefinitions {
+              'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
+                  name 'BRANCH'
+                  quoteValue 'false'
+                  saveJSONParameterToFile 'false'
+                  visibleItemCount '15'
+                  type 'PT_SINGLE_SELECT'
+                  groovyScript script
+                  defaultValue "BRANCH_NAME"
+                  multiSelectDelimiter ','
+                  projectName "dwer"
+            }
+        }
       scm {
-        git(GITHUB_REPOSITORY, GITHUB_BRANCH)
+        git(GITHUB_REPOSITORY, "\$BRANCH")
       }
       steps {
         shell("bash ./script.sh > output.txt && tar -cvzf child${i}-\$BUILD_NUMBER.tar.gz output.txt && cp child${i}-\$BUILD_NUMBER.tar.gz ../${mainName}")
@@ -76,6 +92,9 @@ job(mainName) {
                       failure('FAILURE')
                       unstable('UNSTABLE')
                   }
+              }
+              parameters {
+                  predefinedProp('BRANCH_NAME', '\$BRANCH')
               }
     }
     publishers {
