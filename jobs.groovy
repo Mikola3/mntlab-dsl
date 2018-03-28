@@ -2,9 +2,10 @@ def Type = "child"
 def StartName = "MNTLAB-ayarmalovich-"
 def EndName = "-build-job"
 def Amount = 4
+def label = "EPBYMINW2473"
 
 job("${StartName}main${EndName}") {
-    label('EPBYMINW2473')
+    label("${label}")
     description("Main Job")
     scm {
         git {
@@ -34,7 +35,7 @@ job("${StartName}main${EndName}") {
                     type 'PT_CHECKBOX'
                     groovyScript """import jenkins.model.*
 import hudson.model.*
-def job_pattern = /EPBYMINW2473.*child*/ 
+def job_pattern = /${label}.*child*/ 
 def matchedJobs = Jenkins.instance.getAllItems(jenkins.model.ParameterizedJobMixIn.ParameterizedJob.class).findAll{
   job -> job =~ job_pattern
 }
@@ -70,7 +71,7 @@ return matchedJobs.name"""
 }
 for (i=1; i < Amount+1; i++) {
     job("${StartName}${Type}$i${EndName}") {
-        label('EPBYMINW2473')
+        label("${label}")
         description("Child Job")
         scm {
             git {
