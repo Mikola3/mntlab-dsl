@@ -21,7 +21,7 @@ for (int i = 1; i <5; i++) {
         preBuildCleanup()
       }
       scm {
-        git(GITHUB_REPOSITORY, GITHUB_BRANCH)
+        git(GITHUB_REPOSITORY, "\$BRANCH_NAME")
       }
       steps {
         shell("./script.sh > log.txt && tar -cf child${i}-\$BUILD_NUMBER.tar.gz jobs.groovy log.txt && cp child${i}-\$BUILD_NUMBER.tar.gz ../${mainJob}")
