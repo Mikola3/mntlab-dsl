@@ -30,7 +30,7 @@ return branches"""
     steps{
       shell("""bash script.sh > output.txt
 tar -czvf \${BRANCH}_dsl_script.tar.gz output.txt jobs.groovy
-cp \${BRANCH}_dsl_script.tar.gz \$JENKINS_HOME/workspace/MNTLAB-ykhodzin-main-build-job/\${BRANCH}_\${BUILD_TAG}_dsl_script.tar.gz""")
+cp \${BRANCH}_dsl_script.tar.gz ../MNTLAB-ykhodzin-main-build-job/\${BRANCH}_\${BUILD_TAG}_dsl_script.tar.gz""")
     }
     publishers {
       archiveArtifacts('output.txt, \${BRANCH}_dsl_script.tar.gz')
