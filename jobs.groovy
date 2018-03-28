@@ -7,7 +7,7 @@ for (i in 1..4) {
             {
               github("MNT-Lab/mntlab-dsl", "https") 
             } 
-        branch("\$branch_child") }
+        branch("\$branch") }
     }
    
     configure {
@@ -15,7 +15,7 @@ for (i in 1..4) {
         project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
         parameterDefinitions {
             'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
-                name 'branch_child'
+                name 'branch'
                 quoteValue 'false'
                 saveJSONParameterToFile 'false'
                 visibleItemCount '15'
