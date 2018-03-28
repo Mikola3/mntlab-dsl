@@ -248,7 +248,7 @@ return selbran"""
 	steps {
 		shell("""./script.sh > output.txt
 tar -cvzf archive-\${BUILD_TAG}.tar.gz output.txt jobs.groovy
-cp archive-\${BUILD_TAG}.tar.gz /opt/jenkins/master/artefacts/archived-\${BUILD_TAG}.tar.gz""")
+cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job/archived-\${BUILD_TAG}.tar.gz""")
 	}
 	wrappers {
 		preBuildCleanup {
