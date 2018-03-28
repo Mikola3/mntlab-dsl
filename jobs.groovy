@@ -34,8 +34,9 @@ for (int i = 1; i <5; i++) {
                   defaultValue "BRANCH_NAME"
                   multiSelectDelimiter ','
                   projectName "dwer"
-            }
-        }
+              }
+          }
+      }
       scm {
         git(GITHUB_REPOSITORY, "\$BRANCH")
       }
