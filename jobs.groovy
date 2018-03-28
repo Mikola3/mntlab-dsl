@@ -24,8 +24,8 @@ def inst = Jenkins.instance
 def job_pattern = /EPBYMINW2468.*ifilimonau-child*/
 
 
-def matchedJobs = inst.items.findAll { job ->
-    job.name =~ job_pattern
+def matchedJobs = Jenkins.instance.getAllItems(jenkins.model.ParameterizedJobMixIn.ParameterizedJob.class).findAll{
+  job -> job =~ job_pattern
 }
 matchedJobs.name"""
                             multiSelectDelimiter ','
