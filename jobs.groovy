@@ -1,6 +1,12 @@
 COUNTER = 0
+label = 'EPBYMINW2468'
 
 job("MNTLAB-ifilimonau-main-build-job") {
+
+    label(${label})
+        description()
+        keepDependencies(false)
+
     parameters {
         choiceParam('BRANCH_NAME', ['ifilimonau', 'master'], 'branch name choosing')
         configure {
@@ -16,7 +22,7 @@ job("MNTLAB-ifilimonau-main-build-job") {
                             groovyScript """import jenkins.model.*
 def inst = Jenkins.instance
 
-def job_pattern = /^MNTLAB-ifilimonau-child*/
+def job_pattern = /^/\${label}*MNTLAB-ifilimonau-child*/
 
 def matchedJobs = inst.items.findAll { job ->
     job.name =~ job_pattern
@@ -48,8 +54,13 @@ matchedJobs.name"""
 
 
 
-while(COUNTER < 1){
+while(COUNTER < 4){
     COUNTER += 1
+
+    label(${label})
+        description()
+        keepDependencies(false)
+
     job("MNTLAB-ifilimonau-child$COUNTER-build-job") {
 
         scm{
@@ -95,7 +106,7 @@ return branches"""
         steps {
             shell ("bash script.sh\n" +
                     "tar -czvf \$JOB_BASE_NAME.tar.gz output.txt jobs.groovy\n" +
-                    "cp \$JOB_BASE_NAME.tar.gz /\$JENKINS_HOME/workspace/MNTLAB-ifilimonau-main-build-job/")
+                    "cp \$JOB_BASE_NAME.tar.gz ../MNTLAB-ifilimonau-main-build-job/")
         }
     }
 }
