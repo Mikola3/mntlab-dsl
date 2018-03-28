@@ -34,13 +34,14 @@ def branches = proc.in.text.readLines().collect {
 branches"""
                 multiSelectDelimiter ','
                 projectName "${jobName}"
-                defaultValue '$branch'
+                defaultValue 'uvalchkou'
             }
         }
     }
 }
   steps {
-    shell("""./script.sh > out.txt
+    shell("""chmod +x ./script.sh
+./script.sh > out.txt
 tar czvf \$BUILD_NUMBER-\$JOB_NAME.tar.gz ./out.txt
 mv \$BUILD_NUMBER-\$JOB_NAME.tar.gz /opt/jenkins/master/workspace/\$BUILD_NUMBER-\$JOB_NAME.tar.gz""")
   }
