@@ -25,7 +25,7 @@ for (int i = 1; i <5; i++) {
             project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
             parameterDefinitions {
               'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
-                  name 'BRANCH'
+                  name 'BRANCH_NAME'
                   quoteValue 'false'
                   saveJSONParameterToFile 'false'
                   visibleItemCount '15'
@@ -39,7 +39,7 @@ for (int i = 1; i <5; i++) {
         }
       }
       scm {
-        git(GITHUB_REPOSITORY, "\$BRANCH")
+        git(GITHUB_REPOSITORY, "\$BRANCH_NAME")
       }
       steps {
         shell("bash ./script.sh > output.txt && tar -cvzf child${i}-\$BUILD_NUMBER.tar.gz output.txt && cp child${i}-\$BUILD_NUMBER.tar.gz ../${mainName}")
