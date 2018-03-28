@@ -76,7 +76,7 @@ job(mainJob) {
                       unstable('UNSTABLE')
                   }
                   parameters {
-                      predefinedProp('BRANCH_NAME', '\$BRANCH_NAME')
+                      predefinedProp('BRANCH_NAME', '\$BRANCH')
                   }
               }
     }
