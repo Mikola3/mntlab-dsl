@@ -49,6 +49,9 @@ job("MNTLAB-${StName}-main-build-job") {
 	    }
 	}	
         shell('chmod +x script.sh && ./script.sh >> output.log && tar -cf child${i}-\${ChooseBranch}-\${BUILD_NUMBER}_dsl_script.tar.gz output.log')
+    }    
+    wrappers {
+	preBuildCleanup()    
     }
     publishers { 
 	archiveArtifacts('*.tar.gz')
