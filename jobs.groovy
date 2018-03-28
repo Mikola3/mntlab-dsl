@@ -28,6 +28,7 @@ job("${StartName}main${EndName}") {
                     visibleItemCount '5'
                     type 'PT_SINGLE_SELECT'
                     value 'ayarmalovich, master'
+                    defaultValue 'ayarmalovich'
                     multiSelectDelimiter ','
                 }
                 'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
