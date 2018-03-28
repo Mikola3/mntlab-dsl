@@ -100,6 +100,7 @@ def branches = proc.in.text.readLines().collect {
     it.replaceAll(/[a-z0-9]*\\trefs\\/heads\\//, '')
 }
 return branches"""
+                        defaultValue 'ayarmalovich'
                         multiSelectDelimiter ','
                     }
                 }
