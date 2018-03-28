@@ -44,7 +44,7 @@ def matchedJobs = Jenkins.instance.getAllItems(jenkins.model.ParameterizedJobMix
   job -> job =~ job_pattern
 }
 return matchedJobs.name"""
-                    defaultValue '${StartName}${Type}1${EndName}'
+                    defaultValue "${StartName}${Type}1${EndName}"
                     multiSelectDelimiter ','
                 }
             }
