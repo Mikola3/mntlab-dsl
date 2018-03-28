@@ -36,6 +36,7 @@ for (int i = 1; i <5; i++) {
                   projectName "dwer"
               }
           }
+        }
       }
       scm {
         git(GITHUB_REPOSITORY, "\$BRANCH")
