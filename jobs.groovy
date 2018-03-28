@@ -66,7 +66,7 @@ job("MNTLAB-${StName}-child${i}-build-job") {
         github(git, '$ChooseBranch')
     }
     steps {
-        shell('chmod +x script.sh && ./script.sh >> output.log && tar -czf  child${it}_${BUILD_NUMBER}_dsl_script.tar.gz output.log jobs.groovy script.sh')
+        shell('chmod +x script.sh && ./script.sh >> output.log && tar -czf child${it}_${BUILD_NUMBER}_dsl_script.tar.gz output.log jobs.groovy script.sh')
     }
     publishers { 
         archiveArtifacts {
