@@ -22,7 +22,7 @@ job("MNTLAB-ifilimonau-main-build-job") {
                             groovyScript """import jenkins.model.*
 def inst = Jenkins.instance
 
-def job_pattern = /^/\${label}*MNTLAB-ifilimonau-child*/
+def job_pattern = /^/\$label*MNTLAB-ifilimonau-child*/
 
 def matchedJobs = inst.items.findAll { job ->
     job.name =~ job_pattern
@@ -81,10 +81,10 @@ while(COUNTER < 4){
                                 name 'BRANCH_NAME2'
                                 quoteValue 'false'
                                 saveJSONParameterToFile 'false'
-                                visibleItemCount '4'
+                                visibleItemCount '15'
                                 type 'PT_CHECKBOX'
                                 groovyScript """import jenkins.model.*
-def gitURL = "https://github.com/MNT-Lab/build-principals.git"
+def gitURL = "https://github.com/MNT-Lab/mntlab-dsl.git"
 def command = "git ls-remote -h \$gitURL"
 
 def proc = command.execute()
