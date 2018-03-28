@@ -1,7 +1,7 @@
 def git = "MNT-Lab/mntlab-dsl"
 def repo = "azaitsau"
 def StName = "azaitsau"
-
+def mainJob = "MNTLAB-${StName}-main-build-job"
 def gitURL = "https://github.com/MNT-Lab/mntlab-dsl.git"
 def command = "git ls-remote -h $gitURL"
 
