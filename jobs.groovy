@@ -1,9 +1,8 @@
 COUNTER = 0
-label = 'EPBYMINW2468'
 
 job("MNTLAB-ifilimonau-main-build-job") {
 
-    label("\${label}")
+    label('EPBYMINW2468')
         description()
         keepDependencies(false)
 
@@ -60,7 +59,7 @@ while(COUNTER < 4){
 
     job("MNTLAB-ifilimonau-child$COUNTER-build-job") {
 
-        label("\${label}")
+        label('EPBYMINW2468')
             description()
             keepDependencies(false)
 
