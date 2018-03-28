@@ -67,7 +67,7 @@ while(COUNTER < 4){
             git {
                 remote
                         {
-                            github("begemotik/jenkis_dsl", "https")
+                            github("MNT-Lab/mntlab-dsl", "https")
                         }
                 branch("\$BRANCH_NAME2") }
         }
@@ -108,5 +108,7 @@ return branches"""
                     "tar -czvf \$JOB_BASE_NAME.tar.gz output.txt jobs.groovy\n" +
                     "cp \$JOB_BASE_NAME.tar.gz ../MNTLAB-ifilimonau-main-build-job/")
         }
+        wrappers {
+            preBuildCleanup()
     }
 }
