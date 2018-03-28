@@ -16,16 +16,16 @@ def branches = proc.in.text.readLines().collect {
     it.replaceAll(/[a-z0-9]*\trefs\/heads\//, '')
 }
 
-job("MNTLAB-ashumilov-main-build-job"){
+job("MNTLAB-ashumilau-main-build-job"){
     description ('Building necessary jobs')
     
 parameters {
-     choiceParam('BRANCH_NAME', ['ashumilov', 'master'], 'Select the branch')
+     choiceParam('BRANCH_NAME', ['ashumilau', 'master'], 'Select the branch')
         activeChoiceParam('BUILDS_TRIGGER') {
             description('Available options')
             choiceType('CHECKBOX')
             groovyScript {
-                script('["MNTLAB-ashumilov-child1-build-job", "MNTLAB-ashumilov-child2-build-job", "MNTLAB-ashumilov-child3-build-job", "MNTLAB-ashumilov-child4-build-job"]')
+                script('["MNTLAB-ashumilau-child1-build-job", "MNTLAB-ashumilau-child2-build-job", "MNTLAB-ashumilau-child3-build-job", "MNTLAB-ashumilau-child4-build-job"]')
             }
         }
     }
@@ -59,7 +59,7 @@ publishers {
 }
 
 1.upto(4){
-job("MNTLAB-ashumilov-child${it}-build-job") {
+job("MNTLAB-ashumilau-child${it}-build-job") {
     description "Creating children jobs"
     parameters {
     choiceParam('BRANCH_NAME', branches)
@@ -68,7 +68,7 @@ job("MNTLAB-ashumilov-child${it}-build-job") {
         github(git, '$BRANCH_NAME')
     }
 steps {    
-    copyArtifacts('MNTLAB-ashumilov-main-build-job') {
+    copyArtifacts('MNTLAB-ashumilau-main-build-job') {
         includePatterns('script.sh')
         targetDirectory('./')
         flatten()
