@@ -4,6 +4,7 @@ def EndName = "-build-job"
 def Amount = 4
 
 job("${StartName}main${EndName}") {
+    label('EPBYMINW2473')
     description("Main Job")
     scm {
         git {
@@ -68,6 +69,7 @@ def matchedJobs = Jenkins.instance.items.findAll {
 }
 for (i=1; i < Amount+1; i++) {
     job("${StartName}${Type}$i${EndName}") {
+        label('EPBYMINW2473')
         description("Child Job")
         scm {
             git {
