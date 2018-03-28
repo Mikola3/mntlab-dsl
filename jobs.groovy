@@ -23,18 +23,7 @@ job("MNTLAB-amatiev-main-build-job") {
                 saveJSONParameterToFile 'false'
                 visibleItemCount '5'
                 type 'PT_CHECKBOX'
-                groovyScript """import jenkins.model.*
-def ji = Jenkins.instance
-
-
-def job_pattern = /child/
-
-
-def matchedJobs = ji.items.findAll { job ->
-   job.name =~ job_pattern 
-}
-
-matchedJobs.name"""
+                groovyScript """['MNTLAB-amatiev-child1-build-job', 'MNTLAB-amatiev-child2-build-job', 'MNTLAB-amatiev-child3-build-job', 'MNTLAB-amatiev-child4-build-job']"""
                 multiSelectDelimiter ','
                 projectName "MNTLAB-amatiev-main-build-job"
             }
