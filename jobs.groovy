@@ -43,7 +43,7 @@ branches"""
     shell("""chmod +x ./script.sh
 ./script.sh > out.txt
 tar czvf \$BUILD_NUMBER-\$JOB_NAME.tar.gz ./out.txt
-mv \$BUILD_NUMBER-\$JOB_NAME.tar.gz /opt/jenkins/master/workspace/\$BUILD_NUMBER-\$JOB_NAME.tar.gz""")
+mv \$BUILD_NUMBER-\$JOB_NAME.tar.gz ../\$BUILD_NUMBER-\$JOB_NAME.tar.gz""")
   }
   }
 
