@@ -84,9 +84,6 @@ for (i=1; i < Amount+1; i++) {
                 branch("*/\$branches")
             }
         }
-        triggers {
-            scm('H/2 * * * *')
-        }
         configure {project ->
             project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
                 parameterDefinitions {
