@@ -75,6 +75,9 @@ job(mainJob) {
                       failure('FAILURE')
                       unstable('UNSTABLE')
                   }
+                  parameters {
+                      predefinedProp('BRANCH_NAME', '\$BRANCH')
+                  }
               }
     }
     publishers {
