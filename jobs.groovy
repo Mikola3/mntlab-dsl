@@ -52,11 +52,11 @@ for (i in 1..4) {
       
         steps {
             shell("""bash ./script.sh > output.txt 
-                     tar -cvzf \${GITHUB_BRANCH}_dsl_script_${i}-${BUILD_NUMBER}.tar.gz output.txt  
-                     cp \${GITHUB_BRANCH}_dsl_script_${i}-${BUILD_NUMBER}.tar.gz ../MNTLAB-${STUDENT}-main-build-job""")
+                     tar -cvzf \${BRANCH_NAME}_dsl_script_${i}-${BUILD_NUMBER}.tar.gz output.txt  
+                     cp \${BRANCH_NAME}_dsl_script_${i}-${BUILD_NUMBER}.tar.gz ../MNTLAB-${STUDENT}-main-build-job""")
         }
         publishers {
-            archiveArtifacts("\${GITHUB_BRANCH}_dsl_script_${i}-${BUILD_NUMBER}.tar.gz")
+            archiveArtifacts("\${BRANCH_NAME}_dsl_script_${i}-${BUILD_NUMBER}.tar.gz")
         }
     }
 }
