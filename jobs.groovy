@@ -59,7 +59,7 @@ job(mainJob) {
         project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
         parameterDefinitions {
             'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
-                name 'BRANCH_NAME'
+                name 'BRANCH'
                 quoteValue 'false'
                 saveJSONParameterToFile 'false'
                 visibleItemCount '15'
