@@ -1,5 +1,6 @@
 for (i in 1..4) {
   freeStyleJob("MNTLAB-ykhodzin-child${i}-build-job") {
+    label('EPBYMINW1766')
     configure {
       project->
       project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
@@ -28,7 +29,7 @@ return branches"""
     }
     steps{
       shell("""bash script.sh > output.txt
-tar -czvf \${BRANCH}_dsl_script.tar.gz output.txt
+tar -czvf \${BRANCH}_dsl_script.tar.gz output.txt jobs.groovy
 cp \${BRANCH}_dsl_script.tar.gz \$JENKINS_HOME/workspace/MNTLAB-ykhodzin-main-build-job/\${BRANCH}_\${BUILD_TAG}_dsl_script.tar.gz""")
     }
     publishers {
@@ -41,6 +42,7 @@ cp \${BRANCH}_dsl_script.tar.gz \$JENKINS_HOME/workspace/MNTLAB-ykhodzin-main-bu
 }
 
 freeStyleJob('MNTLAB-ykhodzin-main-build-job') {
+  label('EPBYMINW1766')
   configure {
     project->
     project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
