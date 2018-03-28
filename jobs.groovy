@@ -62,7 +62,7 @@ job("MNTLAB-alahutsin-child${it}-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-        shell('chmod +x do.sh && ./do.sh >> output.log && tar -czf  child${it}_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
+        shell('chmod +x do.sh && ./do.sh >> output.log && tar -czf  child' + ${it} '_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
