@@ -96,7 +96,7 @@ job("MNTLAB-${STUDENT}-main-build-job") {
       scm {
                 git {
                     remote { 
-                        github("NikB97/dsl", "https") 
+                        github("MNT-Lab/mntlab-dsl", "https") 
                     }
                 branch ("${GITHUB_BRANCH}") }
             } 
