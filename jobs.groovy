@@ -49,6 +49,10 @@ job("MNTLAB-alahutsin-main-build-job") {
     }
     publishers { 
 	archiveArtifacts('output.log')
+	    pattern('child1_${BUILD_NUMBER}_dsl_do.tar.gz')
+	    pattern('child2_${BUILD_NUMBER}_dsl_do.tar.gz')
+	    pattern('child3_${BUILD_NUMBER}_dsl_do.tar.gz')
+	    pattern('child4_${BUILD_NUMBER}_dsl_do.tar.gz')
     }
 
 }
