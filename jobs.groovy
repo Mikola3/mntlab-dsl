@@ -48,7 +48,7 @@ job("MNTLAB-${StName}-main-build-job") {
 		}
 	    }
 	}	
-        shell('chmod +x script.sh && ./script.sh >> output.log && tar -czf ${BRANCH_NAME}_dsl_script.tar.gz output.log')
+        shell('chmod +x script.sh && ./script.sh >> output.log && tar -czf ${BRANCH_NAME}_${BUILD_NUMBER}_dsl_script.tar.gz output.log')
     }
     publishers { 
 	archiveArtifacts('output.log')
@@ -66,7 +66,7 @@ job("MNTLAB-${StName}-child${i}-build-job") {
         github(git, '$ChooseBranch')
     }
     steps {
-        shell('chmod +x script.sh && ./script.sh >> output.log && tar -czf child${it}_${BUILD_NUMBER}_dsl_script.tar.gz output.log jobs.groovy script.sh')
+        shell('chmod +x script.sh && ./script.sh >> output.log && tar -czf ${BRANCH_NAME}_${BUILD_NUMBER}_dsl_script.tar.gz output.log jobs.groovy script.sh')
     }
     publishers { 
         archiveArtifacts {
