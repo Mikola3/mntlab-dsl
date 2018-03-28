@@ -58,6 +58,7 @@ job(mainName) {
                 visibleItemCount '15'
                 type 'PT_CHECKBOX'
                 groovyScript "${Jobs.collect{"'$it'"}}"
+                defaultGroovyScript "${Jobs.collect{"'$it'"}}"
                 multiSelectDelimiter ','
                 projectName "dwer"
             }
