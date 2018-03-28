@@ -3,7 +3,7 @@ label = 'EPBYMINW2468'
 
 job("MNTLAB-ifilimonau-main-build-job") {
 
-    label("${label}")
+    label('$label')
         description()
         keepDependencies(false)
 
@@ -37,7 +37,7 @@ matchedJobs.name"""
     }
     steps {
         downstreamParameterized {
-            trigger('${AMOUNT_OF_JOBS}') {
+            trigger('$AMOUNT_OF_JOBS') {
                 block {
                     buildStepFailure('FAILURE')
                     failure('FAILURE')
@@ -59,10 +59,10 @@ while(COUNTER < 4){
 
     job("MNTLAB-ifilimonau-child$COUNTER-build-job") {
 
-        label("${label}")
+        label('$label')
             description()
             keepDependencies(false)
-        
+
         scm{
             git {
                 remote
