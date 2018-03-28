@@ -7,6 +7,7 @@ for(int i=0; i<5; i++)
   if(i == 0)
   {
     job("$parent_name") {
+    label("EPBYMINW6593")
       description ('Building necessary jobs')
             wrappers {
         preBuildCleanup()
@@ -63,6 +64,7 @@ for(int i=0; i<5; i++)
   {
     String child_name = "MNTLAB-vpeshchanka-child"  + Integer.toString(i) + "-build-job"
     job("$child_name") {
+    label("EPBYMINW6593")
       description ('Building necessary jobs')
     configure {
     project->
