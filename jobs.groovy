@@ -34,7 +34,7 @@ job("MNTLAB-hkavaliova-main-build-job") {
     }
     steps {
         downstreamParameterized {
-            trigger("$SelectChilds") {
+            trigger('$SelectChilds') {
                 block {
                     buildStepFailure("FAILURE")
                     unstable("UNSTABLE")
