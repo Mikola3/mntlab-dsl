@@ -1,7 +1,7 @@
-def git = "MNT-Lab/mntlab-dsl"
+def git = "aliaksandr-lahutsin/testRepoForDSL"
 def repo = "alahutsin"
 
-def gitURL = "https://github.com/MNT-Lab/mntlab-dsl.git"
+def gitURL = "https://github.com/aliaksandr-lahutsin/testRepoForDSL.git"
 def command = "git ls-remote -h $gitURL"
 
 def proc = command.execute()
@@ -45,7 +45,7 @@ job("MNTLAB-alahutsin-main-build-job") {
 		}
 	    }
 	}	
-        shell('chmod +x do.sh && ./do.sh >> output.log && tar -czf ${BRANCH_NAME}_dsl_do.tar.gz output.log')
+        shell('chmod +x do.sh && ./do.sh >> output.log && tar -czf main_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
 	archiveArtifacts('output.log')
@@ -53,8 +53,7 @@ job("MNTLAB-alahutsin-main-build-job") {
 
 }
 
-1.upto(4) {
-job("MNTLAB-alahutsin-child${it}-build-job") {
+job("MNTLAB-alahutsin-child1-build-job") {
     parameters {
 	choiceParam('BRANCH_NAME', branches, '')
     }
@@ -62,14 +61,67 @@ job("MNTLAB-alahutsin-child${it}-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-        shell('chmod +x do.sh && ./do.sh >> output.log && tar -czf  child' + ${it} '_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
+      shell('chmod +x do.sh && ./do.sh > output.log && tar -czf ../MNTLAB-alahutsin-main-build-job/child1_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
             pattern('output.log')
-            pattern('${BRANCH_NAME}_dsl_do.tar.gz')
+            pattern('child1_${BUILD_NUMBER}_dsl_do.tar.gz')
             onlyIfSuccessful()
    }
   }
  }
-}
+job("MNTLAB-alahutsin-child2-build-job") {
+    parameters {
+	choiceParam('BRANCH_NAME', branches, '')
+    }
+    scm {
+        github(git, '$BRANCH_NAME')
+    }
+    steps {
+      shell('chmod +x do.sh && ./do.sh > output.log && tar -czf ../MNTLAB-alahutsin-main-build-job/child2_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
+    }
+    publishers { 
+        archiveArtifacts {
+            pattern('output.log')
+            pattern('child2_${BUILD_NUMBER}_dsl_do.tar.gz')
+            onlyIfSuccessful()
+   }
+  }
+ }
+  job("MNTLAB-alahutsin-child3-build-job") {
+    parameters {
+	choiceParam('BRANCH_NAME', branches, '')
+    }
+    scm {
+        github(git, '$BRANCH_NAME')
+    }
+    steps {
+      shell('chmod +x do.sh && ./do.sh > output.log && tar -czf ../MNTLAB-alahutsin-main-build-job/child3_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
+    }
+    publishers { 
+        archiveArtifacts {
+            pattern('output.log')
+            pattern('child3_${BUILD_NUMBER}_dsl_do.tar.gz')
+            onlyIfSuccessful()
+   }
+  }
+ }
+  job("MNTLAB-alahutsin-child4-build-job") {
+    parameters {
+	choiceParam('BRANCH_NAME', branches, '')
+    }
+    scm {
+        github(git, '$BRANCH_NAME')
+    }
+    steps {
+      shell('chmod +x do.sh && ./do.sh > output.log && tar -czf ../MNTLab-alahutsin-main-build-job/child4_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
+    }
+    publishers { 
+        archiveArtifacts {
+            pattern('output.log')
+            pattern('child4_${BUILD_NUMBER}_dsl_do.tar.gz')
+            onlyIfSuccessful()
+   }
+  }
+ }
