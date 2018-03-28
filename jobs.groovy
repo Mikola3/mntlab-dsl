@@ -1,9 +1,9 @@
 COUNTER = 0
-label = "EPBYMINW2468"
+label = 'EPBYMINW2468'
 
 job("MNTLAB-ifilimonau-main-build-job") {
 
-    label('EPBYMINW2468')
+    label("\${label}")
         description()
         keepDependencies(false)
 
@@ -22,7 +22,7 @@ job("MNTLAB-ifilimonau-main-build-job") {
                             groovyScript """import jenkins.model.*
 def inst = Jenkins.instance
 
-def job_pattern = /^/\$label*MNTLAB-ifilimonau-child*/
+def job_pattern = /^/\${label}*MNTLAB-ifilimonau-child*/
 
 def matchedJobs = inst.items.findAll { job ->
     job.name =~ job_pattern
@@ -59,7 +59,7 @@ while(COUNTER < 4){
 
     job("MNTLAB-ifilimonau-child$COUNTER-build-job") {
 
-        label('EPBYMINW2468')
+        label("\${label}")
             description()
             keepDependencies(false)
 
