@@ -110,5 +110,6 @@ return branches"""
         }
         wrappers {
             preBuildCleanup()
+        }   
     }
 }
