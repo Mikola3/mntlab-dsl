@@ -3,7 +3,7 @@ label = 'EPBYMINW2468'
 
 job("MNTLAB-ifilimonau-main-build-job") {
 
-    label('$label')
+    label($label)
         description()
         keepDependencies(false)
 
@@ -19,7 +19,15 @@ job("MNTLAB-ifilimonau-main-build-job") {
                             saveJSONParameterToFile 'false'
                             visibleItemCount '4'
                             type 'PT_CHECKBOX'
-                            value 'ifilimonau, master'
+                            groovyScript """import jenkins.model.*
+def inst = Jenkins.instance
+
+def job_pattern = /^/\${label}*MNTLAB-ifilimonau-child*/
+
+def matchedJobs = inst.items.findAll { job ->
+    job.name =~ job_pattern
+}
+matchedJobs.name"""
                             multiSelectDelimiter ','
                             projectName "${jobName}"
                         }
@@ -51,7 +59,7 @@ while(COUNTER < 4){
 
     job("MNTLAB-ifilimonau-child$COUNTER-build-job") {
 
-        label('$label')
+        label($label)
             description()
             keepDependencies(false)
 
