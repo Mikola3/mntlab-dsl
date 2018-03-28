@@ -61,7 +61,7 @@ job("MNTLAB-alahutsin-child1-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-      shell('chmod +x do.sh && ./do.sh > output.log && ls && tar -czf ../MNTLAB-alahutsin-main-build-job/ child1_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
+      shell('chmod +x do.sh && ./do.sh > output.log && ls && tar -czf ../MNTLAB-alahutsin-main-build-job/child1_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
@@ -79,7 +79,7 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-      shell('chmod +x do.sh && ./do.sh > output.log && ls && tar -czf ../MNTLAB-alahutsin-main-build-job/ child2_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
+      shell('chmod +x do.sh && ./do.sh > output.log && ls && tar -czf ../MNTLAB-alahutsin-main-build-job/child2_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
@@ -97,7 +97,7 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-      shell('chmod +x do.sh && ./do.sh > output.log && ls && tar -czf ../MNTLAB-alahutsin-main-build-job/ child3_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
+      shell('chmod +x do.sh && ./do.sh > output.log && ls && tar -czf ../MNTLAB-alahutsin-main-build-job/child3_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
@@ -115,7 +115,7 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-      shell('chmod +x do.sh && ./do.sh > output.log && ls && tar -czf ../MNTLAB-alahutsin-main-build-job/ child4_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
+      shell('chmod +x do.sh && ./do.sh > output.log && ls && tar -czf ../MNTLAB-alahutsin-main-build-job/child4_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
