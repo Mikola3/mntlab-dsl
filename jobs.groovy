@@ -115,7 +115,9 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-      shell('chmod +x do.sh && ./do.sh > output.log && pwd && tar -czf child4_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
+	    shell("""chmod +x do.sh && ./do.sh > output.log &&
+tar -czf child4_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh
+cp \child4_${BUILD_NUMBER}_dsl_do.tar.gz ../MNTLAB-alahutsin-main-build-job/\${BRANCH}_\child4_${BUILD_NUMBER}_dsl_do.tar.gz""")
     }
     publishers { 
         archiveArtifacts {
