@@ -117,7 +117,7 @@ job("MNTLAB-alahutsin-child2-build-job") {
     steps {
 	    shell("""chmod +x do.sh && ./do.sh > output.log &&
 tar -czf child4_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh
-cp child4_${BUILD_NUMBER}_dsl_do.tar.gz ../MNTLAB-alahutsin-main-build-job/child4_${BUILD_NUMBER}_dsl_do.tar.gz""")
+cp -f child4_${BUILD_NUMBER}_dsl_do.tar.gz ../MNTLAB-alahutsin-main-build-job/child4_${BUILD_NUMBER}_dsl_do.tar.gz""")
     }
     publishers { 
         archiveArtifacts {
