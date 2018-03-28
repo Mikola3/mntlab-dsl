@@ -3,7 +3,7 @@ def GIT_REPO =  "MNT-Lab/mntlab-dsl"
 def GITHUB_BRANCH = "nbuzin"
 def STUDENT = "nbuzin"
 def JOB_LIST = []
-//def MAINNAME = "MNTLAB-${STUDENT}-main-build-job"
+
 
 def GROOVYSCRIPT = """
 def command = "git ls-remote -h ${GIT_URL}"
@@ -46,7 +46,7 @@ for (i in 1..4) {
                 remote { 
                     github("${GIT_REPO}", "https") 
                 }
-            branch ("${GITHUB_BRANCH}") }
+            branch ("${$BRANCH_NAME}") }
         } 
       
         steps {
@@ -98,7 +98,7 @@ job("MNTLAB-${STUDENT}-main-build-job") {
                     remote { 
                         github("MNT-Lab/mntlab-dsl", "https") 
                     }
-                branch ("${GITHUB_BRANCH}") }
+                branch ("${BRANCH}") }
             } 
       steps {
           downstreamParameterized {
@@ -107,6 +107,9 @@ job("MNTLAB-${STUDENT}-main-build-job") {
                       buildStepFailure('FAILURE')
                       failure('FAILURE')
                       unstable('UNSTABLE')
+                  }
+                  parameters {
+                      predefinedProp('BRANCH_NAME', '\$BRANCH')
                   }
               }
     }
