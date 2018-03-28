@@ -22,7 +22,8 @@ job("MNTLAB-ifilimonau-main-build-job") {
                             groovyScript """import jenkins.model.*
 def inst = Jenkins.instance
 
-def job_pattern = /^/\${label}*MNTLAB-ifilimonau-child*/
+def job_pattern = /^\${label}/MNTLAB-ifilimonau-child.*/
+
 
 def matchedJobs = inst.items.findAll { job ->
     job.name =~ job_pattern
