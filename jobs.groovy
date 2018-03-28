@@ -1,4 +1,4 @@
-for (i in 1..4) {
+for (i in 2..4) {
   freeStyleJob("MNTLAB-ykhodzin-child${i}-build-job") {
     label('EPBYMINW1766')
     configure {
@@ -53,7 +53,7 @@ freeStyleJob('MNTLAB-ykhodzin-main-build-job') {
           saveJSONParameterToFile 'false'
           visibleItemCount '4'
           type 'PT_CHECKBOX'
-          groovyScript '['MNTLAB-ykhodzin-child1-build-job', 'MNTLAB-ykhodzin-child2-build-job', 'MNTLAB-ykhodzin-child3-build-job', 'MNTLAB-ykhodzin-child4-build-job']'
+          groovyScript '[\'MNTLAB-ykhodzin-child1-build-job\', \'MNTLAB-ykhodzin-child2-build-job\', \'MNTLAB-ykhodzin-child3-build-job\', \'MNTLAB-ykhodzin-child4-build-job\']'
           multiSelectDelimiter ','    
         }
       }
