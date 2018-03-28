@@ -47,7 +47,7 @@ job(mainName) {
                 visibleItemCount '15'
                 type 'PT_SINGLE_SELECT'
                 groovyScript script
-                defaultValue "'master'"
+                defaultValue "kklimov"
                 multiSelectDelimiter ','
                 projectName "dwer"
             }
