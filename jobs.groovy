@@ -56,5 +56,5 @@ return branch"""
         steps {shell("""chmod +x script.sh
 bash -ex script.sh > output.txt
 tar czvf \$BUILD_TAG.tar.gz output.txt jobs.groovy
-mv \$BUILD_TAG.tar.gz ../MNTLAB-achernak-main-build-job""")}
+cp \$BUILD_TAG.tar.gz ../MNTLAB-achernak-main-build-job""")}
         wrappers {preBuildCleanup()}}}
