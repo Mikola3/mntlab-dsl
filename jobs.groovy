@@ -45,7 +45,7 @@ job("MNTLAB-alahutsin-main-build-job") {
 		}
 	    }
 	}	
-        shell('chmod +x do.sh && ./do.sh >> output.log && tar -czf main_dsl_do.tar.gz output.log jobs.groovy do.sh')
+        shell('chmod +x do.sh && ./do.sh > output.log && tar -czf main_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
 	archiveArtifacts('output.log')
@@ -61,7 +61,7 @@ job("MNTLAB-alahutsin-child1-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell('chmod +x do.sh && ./do.sh > output.log && tar -czf child1_dsl_do.tar.gz output.log jobs.groovy do.sh')
+	    shell('chmod +x do.sh && ./do.sh > output.log && tar -czf child1_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
@@ -79,7 +79,7 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell('chmod +x do.sh && ./do.sh > output.log && tar -czf child2_dsl_do.tar.gz output.log jobs.groovy do.sh')
+	    shell('chmod +x do.sh && ./do.sh > output.log && tar -czf child2_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
 
     }
     publishers { 
@@ -98,7 +98,7 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell('chmod +x do.sh && ./do.sh > output.log && tar -czf child3_dsl_do.tar.gz output.log jobs.groovy do.sh')
+	    shell('chmod +x do.sh && ./do.sh > output.log && tar -czf child3_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
@@ -116,7 +116,7 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell('chmod +x do.sh && ./do.sh > output.log && tar -czf child4_dsl_do.tar.gz output.log jobs.groovy do.sh')
+	    shell('chmod +x do.sh && ./do.sh > output.log && tar -czf child4_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
