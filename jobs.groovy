@@ -45,6 +45,11 @@ branches"""
 tar czvf \$BUILD_TAG.tar.gz out.txt
 cp \$BUILD_TAG.tar.gz ../MNTLAB-uvalchkou-main-build-job/""")
   }
+	  publishers {
+        archiveArtifacts {
+            pattern('$BUILD_TAG.tar.gz')
+        }
+    }
   }
 
 }
