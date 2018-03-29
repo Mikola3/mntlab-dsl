@@ -1,10 +1,10 @@
 
 def jobs = (1..4)
-def childlist = "'CHILD_1','CHILD_2','CHILD_3','CHILD_4'"
+def childlist = "'MNTLAB-achernak-child1-build-job','MNTLAB-achernak-child2-build-job','MNTLAB-achernak-child3-build-job','MNTLAB-achernak-child4-build-job'"
 def name = []
-jobs.each {name.add("CHILD_$it")}
+jobs.each {name.add("MNTLAB-achernak-child$it-build-job")}
 
-job("MAIN") {
+job("MNTLAB-achernak-main-build-job") {
         label ('EPBYMINW6122')
         description("This is main")
         parameters {choiceParam("branch", ["achernak", "master"], "")
@@ -12,7 +12,7 @@ job("MAIN") {
            description('Choose child builds')
            choiceType('CHECKBOX')
                 groovyScript {script("return[$childlist]")}}}
-        scm { git { remote { github("AlexandrSher/dsl", "https")}
+        scm { git { remote { github("MNT-Lab/mntlab-dsl", "https")}
             branch("\$branch")
         }}
         disabled(false)
@@ -31,7 +31,7 @@ job("$it") {
         description("THIS is child")
         parameters {choiceParam("branch", ["achernak", "master"], "")
         keepDependencies(false)
-        scm { git { remote { github("AlexandrSher/dsl", "https")}
+        scm { git { remote { github("MNT-Lab/mntlab-dsl", "https")}
             branch("\$branch")
         }}
         disabled(false)
