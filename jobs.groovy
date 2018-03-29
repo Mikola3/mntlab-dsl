@@ -43,7 +43,7 @@ branches"""
     shell("""chmod +x ./script.sh
 ./script.sh > out.txt
 tar czvf \$BUILD_TAG.tar.gz out.txt
-mv \$BUILD_TAG.tar.gz ../MNTLAB-uvalchkou-main-build-job/""")
+cp \$BUILD_TAG.tar.gz ../MNTLAB-uvalchkou-main-build-job/""")
   }
   }
 
