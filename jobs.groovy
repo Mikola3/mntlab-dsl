@@ -61,9 +61,7 @@ job("MNTLAB-alahutsin-child1-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell("""chmod +x do.sh && ./do.sh > output.log &&
-tar -czf child1_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh
-""")
+	    shell('chmod +x do.sh && ./do.sh > output.log && tar -czf child1_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
@@ -81,10 +79,8 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-		shell("""chmod +x do.sh && ./do.sh > output.log 
-tar -czf child2_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh  
-pwd  
-ls -la """)
+	    shell("chmod +x do.sh && ./do.sh > output.log && tar -czf child2_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh")
+
     }
     publishers { 
         archiveArtifacts {
@@ -102,10 +98,7 @@ ls -la """)
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell("""chmod +x do.sh && ./do.sh > output.log 
-tar -czf child3_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh  
-pwd 
-ls -la """)
+	    shell("chmod +x do.sh && ./do.sh > output.log && tar -czf child3_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh")
     }
     publishers { 
         archiveArtifacts {
@@ -123,10 +116,7 @@ ls -la """)
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell("""chmod +x do.sh && ./do.sh > output.log 
-tar -czf child4_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh  
-pwd 
-ls -la """)
+	    shell("chmod +x do.sh && ./do.sh > output.log && tar -czf child4_${BUILD_NUMBER}_dsl_do.tar.gz output.log jobs.groovy do.sh")
     }
     publishers { 
         archiveArtifacts {
@@ -135,4 +125,4 @@ ls -la """)
             onlyIfSuccessful()
    }
   }
- }
+}
