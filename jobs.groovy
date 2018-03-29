@@ -92,7 +92,7 @@ for (i=1; i < Amount+1; i++) {
                         visibleItemCount '5'
                         type 'PT_SINGLE_SELECT'
                         groovyScript """
-def gitURL = "https://github.com/MNT-Lab/build-principals.git"
+def gitURL = "https://github.com/MNT-Lab/mntlab-dsl.git"
 def command = "git ls-remote -h \$gitURL"
 def proc = command.execute()
 proc.waitFor()
