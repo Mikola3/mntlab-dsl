@@ -123,6 +123,9 @@ return branches"""
 tar -cvzf \${GIT_BRANCH}_\${BUILD_TAG}_dsl_script.tar.gz ./output.txt ./jobs.groovy
 cp \${GIT_BRANCH}_\${BUILD_TAG}_dsl_script.tar.gz ../MNTLAB-amatiev-main-build-job""")
 	}
+	 publishers {
+    archiveArtifacts('*.tar.gz')
+}
 	wrappers {
 		preBuildCleanup {
 			deleteDirectories(false)
