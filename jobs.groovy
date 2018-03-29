@@ -1,8 +1,8 @@
 
 def jobs = (1..4)
 def childlist = "'MNTLAB-achernak-child1-build-job','MNTLAB-achernak-child2-build-job','MNTLAB-achernak-child3-build-job','MNTLAB-achernak-child4-build-job'"
-def name = []
-jobs.each {name.add("MNTLAB-achernak-child$it-build-job")}
+def names = []
+jobs.each {names.add("MNTLAB-achernak-child$it-build-job")}
 
 job("MNTLAB-achernak-main-build-job") {
         label ('EPBYMINW6122')
@@ -25,7 +25,7 @@ job("MNTLAB-achernak-main-build-job") {
                                 parameters {predefinedProp('branch', '$branch')}}}}
         wrappers {preBuildCleanup()}}
 
-name.each {
+names.each {
 job("$it") {
         label ('EPBYMINW6122')
         description("THIS is child")
