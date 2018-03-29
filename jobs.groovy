@@ -45,7 +45,7 @@ job("MNTLAB-alahutsin-main-build-job") {
 		}
 	    }
 	}	
-        shell('chmod +x do.sh && ./do.sh >> output.log && ls && tar --append-czf main_dsl_do.tar.gz output.log jobs.groovy do.sh')
+        shell('chmod +x do.sh && ./do.sh >> output.log && ls && rm -rf *.tar.gz && tar -czf main_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
 	archiveArtifacts('output.log')
@@ -61,7 +61,7 @@ job("MNTLAB-alahutsin-child1-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell('chmod +x do.sh && ./do.sh > output.log && tar --append -czf child1_dsl_do.tar.gz output.log jobs.groovy do.sh')
+	    shell('chmod +x do.sh && ./do.sh > output.log && rm -rf *.tar.gz && tar -czf child1_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
@@ -79,7 +79,7 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell("chmod +x do.sh && ./do.sh > output.log && tar --append -czf child2_dsl_do.tar.gz output.log jobs.groovy do.sh")
+	    shell('chmod +x do.sh && ./do.sh > output.log && rm -rf *.tar.gz && tar -czf child2_dsl_do.tar.gz output.log jobs.groovy do.sh')
 
     }
     publishers { 
@@ -98,7 +98,7 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell("chmod +x do.sh && ./do.sh > output.log && tar --append -czf child3_dsl_do.tar.gz output.log jobs.groovy do.sh")
+	    shell('chmod +x do.sh && ./do.sh > output.log && rm -rf *.tar.gz && tar -czf child3_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
@@ -116,7 +116,7 @@ job("MNTLAB-alahutsin-child2-build-job") {
         github(git, '$BRANCH_NAME')
     }
     steps {
-	    shell("chmod +x do.sh && ./do.sh > output.log && tar --append -czf child4_dsl_do.tar.gz output.log jobs.groovy do.sh")
+	    shell('chmod +x do.sh && ./do.sh > output.log && rm -rf *.tar.gz && tar -czf child4_dsl_do.tar.gz output.log jobs.groovy do.sh')
     }
     publishers { 
         archiveArtifacts {
