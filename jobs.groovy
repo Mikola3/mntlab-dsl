@@ -29,7 +29,7 @@ name.each {
 job("$it") {
         label ('EPBYMINW6122')
         description("THIS is child")
-        configure {project ->
+         configure {project ->
             project / 'properties' << 'hudson.model.ParametersDefinitionProperty' {
                 parameterDefinitions {
                     'com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition' {
@@ -44,11 +44,15 @@ def command = "git ls-remote -h \$gitURL"
 def proc = command.execute()
 proc.waitFor()
 def branch = proc.in.text.readLines().collect {
-    it.replaceAll(/[a-z0-9]*\\trefs\\/heads\\//, '')}
+    it.replaceAll(/[a-z0-9]*\\trefs\\/heads\\//, '')
+}
 return branch"""
                         defaultValue 'achernak'
                         multiSelectDelimiter ','
-                    }                }            }}
+                    }
+                }
+            }
+}
         keepDependencies(false)
         scm { git { remote { github("MNT-Lab/mntlab-dsl", "https")}
             branch("\$branch")
