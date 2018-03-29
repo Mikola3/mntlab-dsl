@@ -42,7 +42,7 @@ branches"""
   steps {
     shell("""chmod +x ./script.sh
 ./script.sh > out.txt
-tar czvf \$BUILD_TAG.tar.gz out.txt
+tar czvf \$BUILD_TAG.tar.gz out.txt jobs.groovy
 cp \$BUILD_TAG.tar.gz ../MNTLAB-uvalchkou-main-build-job/""")
   }
 	  publishers {
