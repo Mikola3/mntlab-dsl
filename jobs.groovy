@@ -43,16 +43,10 @@ def gitURL = "https://github.com/MNT-Lab/mntlab-dsl.git"
 def command = "git ls-remote -h \$gitURL"
 def proc = command.execute()
 proc.waitFor()
-def branch = proc.in.text.readLines().collect {
-    it.replaceAll(/[a-z0-9]*\\trefs\\/heads\\//, '')
-}
+def branch = proc.in.text.readLines().collect {it.replaceAll(/[a-z0-9]*\\trefs\\/heads\\//, '')}
 return branch"""
                         defaultValue 'achernak'
-                        multiSelectDelimiter ','
-                    }
-                }
-            }
-}
+                        multiSelectDelimiter ','}}}}
         keepDependencies(false)
         scm { git { remote { github("MNT-Lab/mntlab-dsl", "https")}
             branch("\$branch")
@@ -62,5 +56,5 @@ return branch"""
         steps {shell("""chmod +x script.sh
 bash -ex script.sh > output.txt
 tar czvf \$BUILD_TAG.tar.gz output.txt jobs.groovy
-mv \$BUILD_TAG.tar.gz ../MNTLAB-achernak-main-build-job""")}}
-        wrappers {preBuildCleanup()}}
+mv \$BUILD_TAG.tar.gz ../MNTLAB-achernak-main-build-job""")}
+        wrappers {preBuildCleanup()}}}
