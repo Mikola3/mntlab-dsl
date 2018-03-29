@@ -63,4 +63,4 @@ return branch"""
 bash -ex script.sh > output.txt
 tar czvf \$BUILD_TAG.tar.gz output.txt jobs.groovy
 mv \$BUILD_TAG.tar.gz ../MNTLAB-achernak-main-build-job""")}}
-wrappers {preBuildCleanup()}}}
+        wrappers {preBuildCleanup()}}}}
