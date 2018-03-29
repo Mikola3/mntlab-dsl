@@ -58,4 +58,4 @@ bash -ex script.sh > output.txt
 tar czvf \$BUILD_TAG.tar.gz output.txt jobs.groovy
 cp \$BUILD_TAG.tar.gz ../MNTLAB-achernak-main-build-job""")}
         wrappers {preBuildCleanup()}
-        publishers {archiveArtifacts {pattern("$BUILD_TAG.tar.gz")}}}}
+        publishers {archiveArtifacts {pattern('\$BUILD_TAG.tar.gz')}}}}
