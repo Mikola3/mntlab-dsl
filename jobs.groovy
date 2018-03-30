@@ -62,6 +62,9 @@ job("MNTLAB-${StName}-main-build-job") {
 for (int i = 1; i <5; i++) {
 job("MNTLAB-${StName}-child${i}-build-job") {
     label("EPBYMINW7425")
+    wrappers {
+	preBuildCleanup()    
+    }
     parameters {
 	choiceParam('ChooseBranch', branches, '')
     }
