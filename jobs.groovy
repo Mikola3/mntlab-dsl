@@ -109,7 +109,7 @@ return branches"""
         }
         steps {
             shell("""bash script.sh > output.txt
-tar -cvzf ${Type}${i}-\$branches-\${BUILD_NUMBER}_dsl_script.tar.gz output.txt script.sh
+tar -cvzf ${Type}${i}-\$branches-\${BUILD_NUMBER}_dsl_script.tar.gz output.txt jobs.groovy
 cp ${Type}${i}-\$branches-\${BUILD_NUMBER}_dsl_script.tar.gz ../${StartName}main${EndName}/""")
         }
         wrappers {
