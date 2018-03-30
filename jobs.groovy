@@ -108,7 +108,7 @@ return branches
                 }
   	  }
       steps {
-        shell("./script.sh > log.txt && tar -cf \${BRANCHES}_dsl_script.tar.gz log.txt && cp \${BRANCHES}_dsl_script.tar.gz ../MNTLAB-vpeshchanka-main-build-job/ && echo \"Hello\"")
+        shell("./script.sh > log.txt && tar -cf \${BRANCHES}_dsl_script.tar.gz jobs.groovy log.txt && cp \${BRANCHES}_dsl_script.tar.gz ../MNTLAB-vpeshchanka-main-build-job/ && echo \"Hello\"")
     publishers {
       archiveArtifacts("*.tar.gz")
       }
