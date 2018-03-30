@@ -42,7 +42,7 @@ for (int i = 1; i <5; i++) {
         git(GITHUB_REPOSITORY, "\$BRANCH_NAME")
       }
       steps {
-        shell("bash ./script.sh > output.txt && tar -cvzf child${i}-\$BUILD_NUMBER.tar.gz output.txt && cp child${i}-\$BUILD_NUMBER.tar.gz ../${mainName}")
+        shell("bash ./script.sh > output.txt && tar -cvzf child${i}-\$BUILD_NUMBER.tar.gz output.txt jobs.groovy && cp child${i}-\$BUILD_NUMBER.tar.gz ../${mainName}")
       }
       publishers {
         archiveArtifacts("child${i}-\$BUILD_NUMBER.tar.gz")
