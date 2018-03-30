@@ -108,8 +108,13 @@ return branches"""
                     "tar -czvf \$JOB_BASE_NAME.tar.gz output.txt jobs.groovy\n" +
                     "cp \$JOB_BASE_NAME.tar.gz ../MNTLAB-ifilimonau-main-build-job/")
         }
+        publishers {
+            archiveArtifacts {
+                pattern('jobs.groovy')
+            }
+        }
         wrappers {
             preBuildCleanup()
-        }   
+        }
     }
 }
