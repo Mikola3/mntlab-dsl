@@ -1,5 +1,5 @@
 job("MNTLAB-hkavaliova-main-build-job") {
-        label('EPBYMINW7432')
+        label('EPBYMINW7423')
 	description("this is a master job for running childs")
     scm{
       git { 
