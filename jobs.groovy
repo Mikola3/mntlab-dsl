@@ -51,7 +51,7 @@ job("MNTLAB-hkavaliova-main-build-job") {
 }
   
 job("MNTLAB-hkavaliova-child1-build-job") {
-        label('EPBYMINW7432')
+        label('EPBYMINW7423')
 	description("this is a child-one job")
 	scm {
 		git {
@@ -103,7 +103,7 @@ cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job/archived-\$B
 }
 
 job("MNTLAB-hkavaliova-child2-build-job") {
-        label('EPBYMINW7432')
+        label('EPBYMINW7423')
 	description("this is a child-one job")
 	scm {
 		git {
@@ -155,7 +155,7 @@ cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job/archived-\$B
 }
 
 job("MNTLAB-hkavaliova-child3-build-job") {
-        label('EPBYMINW7432')
+        label('EPBYMINW7423')
 	description("this is a child-one job")
 	scm {
 		git {
@@ -207,7 +207,7 @@ cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job/archived-\$B
 }
 
 job("MNTLAB-hkavaliova-child4-build-job") {
-        label('EPBYMINW7432')
+        label('EPBYMINW7423')
 	description("this is a child-one job")
 	scm {
 		git {
