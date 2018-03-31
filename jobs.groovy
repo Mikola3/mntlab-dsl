@@ -92,13 +92,18 @@ return selbran"""
 	steps {
 		shell("""./script.sh > output.txt
 tar -cvzf archive-\${BUILD_TAG}.tar.gz output.txt jobs.groovy
-cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job""")
+cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job/""")
 	}
 	wrappers {
 		preBuildCleanup {
 			deleteDirectories(false)
 			cleanupParameter()
 		}
+	}
+	publishers {
+        	archiveArtifacts {
+            	pattern('archive-$BUILD_TAG.tar.gz')
+        	}
 	}
 }
 
@@ -144,7 +149,7 @@ return selbran"""
 	steps {
 		shell("""./script.sh > output.txt
 tar -cvzf archive-\${BUILD_TAG}.tar.gz output.txt jobs.groovy
-cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job""")
+cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job/""")
 	}
 	wrappers {
 		preBuildCleanup {
@@ -196,7 +201,7 @@ return selbran"""
 	steps {
 		shell("""./script.sh > output.txt
 tar -cvzf archive-\${BUILD_TAG}.tar.gz output.txt jobs.groovy
-cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job""")
+cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job/""")
 	}
 	wrappers {
 		preBuildCleanup {
@@ -248,7 +253,7 @@ return selbran"""
 	steps {
 		shell("""./script.sh > output.txt
 tar -cvzf archive-\${BUILD_TAG}.tar.gz output.txt jobs.groovy
-cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job""")
+cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job/""")
 	}
 	wrappers {
 		preBuildCleanup {
