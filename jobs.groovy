@@ -157,6 +157,11 @@ cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job/""")
 			cleanupParameter()
 		}
 	}
+	publishers {
+        	archiveArtifacts {
+            	pattern('archive-$BUILD_TAG.tar.gz')
+        	}
+	}
 }
 
 job("MNTLAB-hkavaliova-child3-build-job") {
@@ -209,6 +214,11 @@ cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job/""")
 			cleanupParameter()
 		}
 	}
+	publishers {
+        	archiveArtifacts {
+            	pattern('archive-$BUILD_TAG.tar.gz')
+        	}
+	}
 }
 
 job("MNTLAB-hkavaliova-child4-build-job") {
@@ -260,5 +270,10 @@ cp archive-\${BUILD_TAG}.tar.gz ../MNTLAB-hkavaliova-main-build-job/""")
 			deleteDirectories(false)
 			cleanupParameter()
 		}
+	}
+	publishers {
+        	archiveArtifacts {
+            	pattern('archive-$BUILD_TAG.tar.gz')
+        	}
 	}
 }
